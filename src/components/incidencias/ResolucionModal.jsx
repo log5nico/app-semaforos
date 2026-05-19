@@ -43,4 +43,26 @@ export default function ResolucionModal({ open, onClose, onConfirm, isLoading })
                     <div className="flex gap-3">
                         <Button 
                             type="button" 
-                            variant="outline"
+                            variant="outline" 
+                            onClick={onClose} 
+                            className="flex-1"
+                        >
+                            Cancelar
+                        </Button>
+                        <Button 
+                            type="submit" 
+                            disabled={isLoading}
+                            className="flex-1 bg-emerald-600 hover:bg-emerald-700"
+                        >
+                            {isLoading ? (
+                                <Loader2 className="w-4 h-4 animate-spin" />
+                            ) : (
+                                'Confirmar'
+                            )}
+                        </Button>
+                    </div>
+                </form>
+            </DialogContent>
+        </Dialog>
+    );
+}
