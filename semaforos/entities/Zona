@@ -1,0 +1,46 @@
+{
+  "name": "Zona",
+  "type": "object",
+  "properties": {
+    "nombre": {
+      "type": "string",
+      "description": "Nombre de la zona"
+    },
+    "zona_key": {
+      "type": "string",
+      "description": "Identificador interno del pol\u00edgono en el mapa (zona1, zona2, zona3)"
+    },
+    "semaforos_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "IDs de los sem\u00e1foros asignados a esta zona"
+    }
+  },
+  "required": [
+    "nombre",
+    "zona_key"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "$or": [
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        },
+        {
+          "user_condition": {
+            "email": "inteymabahia@gmail.com"
+          }

@@ -1,0 +1,29 @@
+{
+  "name": "DescripcionPredefinida",
+  "type": "object",
+  "properties": {
+    "titulo": {
+      "type": "string",
+      "description": "T\u00edtulo corto que se muestra en el selector"
+    },
+    "texto": {
+      "type": "string",
+      "description": "Texto completo de la descripci\u00f3n predefinida"
+    },
+    "orden": {
+      "type": "number",
+      "description": "Orden de aparici\u00f3n en el listado",
+      "default": 0
+    }
+  },
+  "required": [
+    "titulo",
+    "texto"
+  ],
+  "rls": {
+    "create": null,
+    "read": null,
+    "update": null,
+    "delete": null
+  }
+}
