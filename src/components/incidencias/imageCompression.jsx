@@ -43,3 +43,12 @@ export const compressImage = (file, maxWidth = 800, maxHeight = 600, quality = 0
                     quality
                 );
             };
+            
+            img.onerror = reject;
+            img.src = e.target.result;
+        };
+        
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+    });
+};
