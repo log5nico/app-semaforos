@@ -44,3 +44,45 @@ const SemaforoCard = memo(function SemaforoCard({ semaforo, onEdit, onDelete }) 
                                 {semaforo.enlace_imagen &&
                 <button
                   className="inline-flex items-center gap-2 mt-3 text-emerald-600 text-sm font-medium cursor-pointer hover:text-emerald-700 transition-colors"
+                  onClick={handleImagenClick}>
+
+                                        <ImageIcon className="w-4 h-4" />
+                                        <span className="">Click para abrir imagen del cuadro eléctrico</span>
+                                        <ExternalLink className="w-3.5 h-3.5" />
+                                    </button>
+                }
+                            </div>
+                            
+                            <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <Button
+                  size="icon"
+                  variant="ghost"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onEdit(semaforo);
+                  }}
+                  className="h-8 w-8 text-slate-500 hover:text-emerald-600 hover:bg-emerald-50">
+
+                                    <Pencil className="w-4 h-4" />
+                                </Button>
+                                <Button
+                  size="icon"
+                  variant="ghost"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onDelete(semaforo);
+                  }}
+                  className="h-8 w-8 text-slate-500 hover:text-red-600 hover:bg-red-50">
+
+                                    <Trash2 className="w-4 h-4" />
+                                </Button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </CardContent>
+        </Card>);
+
+});
+
+export default SemaforoCard;
