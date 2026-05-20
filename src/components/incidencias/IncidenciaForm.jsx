@@ -19,13 +19,31 @@ export default function IncidenciaForm({ open, onClose, onSave, incidencia, sema
 
     const { data: descripciones = [] } = useQuery({
         queryKey: ['descripciones'],
-        queryFn: () => db.entities.DescripcionPredefinida.list('orden'),
+        queryFn: async () => {
+          const { data, error } = await supabase
+            .from('descripcion_predefinida')
+            .select('*')
+            .order('orden')
+        
+          if (error) throw error
+        
+          return data
+        },
         staleTime: 60000,
     });
 
     const { data: clasificaciones = [] } = useQuery({
         queryKey: ['clasificaciones'],
-        queryFn: () => db.entities.ClasificacionIncidencia.list('orden'),
+        queryFn: async () => {
+          const { data, error } = await supabase
+            .from('clasificacion_incidencia')
+            .select('*')
+            .order('orden')
+        
+          if (error) throw error
+        
+          return data
+        },
         staleTime: 60000,
     });
 
